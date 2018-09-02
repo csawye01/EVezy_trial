@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <h1>Add Car</h1>
+    <form method="POST" action="/">
+      <input type="text" name="">
+      <input type="submit" value="Add">
+    </form>
+
+    <h1>Cars</h1>
+    <table>
+      {% for car in cars %}
+        <tr>
+          <td>
+            {{car.registration}}
+          </td>
+          <td>
+            <form method="POST" action="./update" style="display: inline">
+              <input type="hidden" value="{{car.registration}}" name="oldregistration">
+              <input type="text" value="{{car.registration}}" name="newregistration">
+              <input type="submit" value="Update">
+            </form>
+          </td>
+          <td>
+            <form method="POST" action="./delete" style="display: inline">
+              <input type="hidden" value="{{car.registration}}" name="registration">
+              <input type="submit" value="Delete">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
